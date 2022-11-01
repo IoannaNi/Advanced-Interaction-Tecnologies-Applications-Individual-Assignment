@@ -1,9 +1,9 @@
 # Lesson: Advanced Interaction Technologies & Applications
 
-### First and Last Name: xxx
-### University Registration Number: dpsdxxxxx
-### GitHub Personal Profile: xxx
-### Advanced Interaction Tecnologies & Applications Github Personal Repository: xxx
+### First and Last Name: Ioanna Ninou
+### University Registration Number: dpsd19085
+### GitHub Personal Profile: https://github.com/IoannaNi
+### Advanced Interaction Tecnologies & Applications Github Personal Repository: https://github.com/IoannaNi/Advanced-Interaction-Tecnologies-Applications-Individual-Assignment
 
 # Introduction
 
@@ -11,6 +11,12 @@
 
 
 # 1st Deliverable
+ 1. Video Capture:
+    Για το Video Capture χρειάστηκε να κατεβάσω την βιβλιοθήκη "Video library for processing 3" ,για να μπορει να αναγνωριζει τις εντολες απο  το Example 16-1 από το Learning Processing, 2nd Edition. 
+    ![](dpsdXXXXX/1.png)
+ 2. Recorded video: 
+    Αρχικα επελεξα ενα βιντεο των 10 δευτερολεπτων στο Youtube οπου και το εγκατεστησα στον υπολογιστη μου. Αφου  κατεβασα το βιντεακι ,το τοποθετησα σε εναν νεο φακελο που το ονομασα "data", το οποιο ειναι μεσα στο φακελο που ειναι το προγραμμα μου υλοποιησα το Exercise 16-2. Αφου πηρα το Exercise 16-2 ,εβαλα το αρχειο απο το βιντεο μου ("videaki.mp4"). 
+
 
 
 # 2nd Deliverable
@@ -26,3 +32,6 @@
 
 
 # Sources
+videaki ("videaki.mp4" -> https://www.youtube.com/watch?v=zIKxshOqlAc )
+download (https://y2mate.tools/en57ec)
+qr (https://me-qr.com/qr-code-generator/qr)

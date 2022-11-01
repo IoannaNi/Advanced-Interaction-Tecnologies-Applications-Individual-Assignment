@@ -1,5 +1,5 @@
 
-import processing.video.*;
+import processing.video.*; // βιβλιοθηκη video
 Capture video;
 void captureEvent(Capture video) {
   video.read();
@@ -7,8 +7,8 @@ void captureEvent(Capture video) {
 
 // 1
 void setup() {
-  size(320, 240);
-  video = new Capture(this, 320, 240);
+  size(320, 240); //ρυθμισεις για το μεγεθοσ του παραθύρου
+  video = new Capture(this, 320, 240); //
   video.start();
 }
 void draw() {
