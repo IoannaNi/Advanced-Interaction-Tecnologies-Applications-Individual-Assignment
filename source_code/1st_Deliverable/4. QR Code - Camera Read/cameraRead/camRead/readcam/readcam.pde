@@ -55,8 +55,8 @@ void keyReleased() {
 
     PImage savedFrame = createImage(video.width, video.height, RGB);
    //savedFrame.copy(video, 0, 0, video.width, video.height, 0, 0, video.width, video.height);
-    savedFrame.updatePixels();
-    // Decode savedFrame
+   savedFrame.updatePixels();
+
     decoder.decodeImage(savedFrame);
    
     break;
