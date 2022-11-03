@@ -1,9 +1,11 @@
-import processing.video.*;
-import qrcodeprocessing.*;
+//4. QR Code - Camera Read: 
 
+import processing.video.*; //βιβλιοθήκη για να μπορει να αναγνωρίσει με την κάμερα
+import qrcodeprocessing.*; //βιβλιοθήκη για να μπορει να αναγνωρίσει Qr
 
-Capture video;                                 // instance of the video capture library
-String statusMsg = "Waiting for an image";     // a string to return messages:
+ 
+Capture video;                                 
+String statusMsg = "Waiting for an image";     
 
 // Decoder object from prdecoder library
 Decoder decoder;
