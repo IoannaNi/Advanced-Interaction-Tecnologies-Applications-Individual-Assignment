@@ -1,15 +1,22 @@
+import qrcodeprocessing.*;
 
-PImage img; 
+Decoder decoder;
 
 void setup() {
+  
   size(400, 400);
-  // Make a new instance of a PImage by loading an image file
-  img = loadImage("myQrCode.png");
+  decoder = new Decoder(this);
+  PImage img = loadImage("qrcode.png");
+  decoder.decodeImage(img);
 }
 
-void draw() {
-  background(0);
-  // The image() function displays the image at a location
-  // in this case the point (0,0).
-  image(img, 0, 0, width, height);
+void draw()
+{ 
+ background(0);
+}
+
+void decoderEvent(Decoder decoder) {
+  String statusMsg = decoder.getDecodedString(); 
+  println(statusMsg);
+  link(statusMsg);
 }

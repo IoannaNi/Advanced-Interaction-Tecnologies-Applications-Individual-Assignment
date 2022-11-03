@@ -61,7 +61,7 @@ void keyReleased() {
    
     break;
   case 'f':    // f runs a test on a file
-    PImage preservedFrame = loadImage("myQrCode.png");
+    PImage preservedFrame = loadImage("qrcode.png");
    
     // Decode file
     decoder.decodeImage(preservedFrame);
