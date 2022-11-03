@@ -1,5 +1,3 @@
-
-
 import processing.video.*;
 import qrcodeprocessing.*;
 
@@ -54,10 +52,11 @@ void keyReleased() {
   case ' ':        
 
     PImage savedFrame = createImage(video.width, video.height, RGB);
-   //savedFrame.copy(video, 0, 0, video.width, video.height, 0, 0, video.width, video.height);
-   savedFrame.updatePixels();
-
+    savedFrame.updatePixels();
     decoder.decodeImage(savedFrame);
+    String statusMsg = decoder.getDecodedString(); 
+  println(statusMsg);
+  link(statusMsg);
    
     break;
   case 'f':    // f runs a test on a file
