@@ -9,13 +9,14 @@ Capture video;
 
 // μεταβλητες του background
 PImage backgroundImage;
-PImage backgroundReplace;
+Movie backgroundReplace;
+
 
 //Ευαισθησία κίνησης 
 float threshold = 10;
 
 void setup() {
-  size(416, 416);
+  size(1280, 720);
   video = new Capture(this, width, height, 30);
   video.start();
 
@@ -23,7 +24,8 @@ void setup() {
   //Το μεγεθος του background ειναι το μεγεθος του βιντεο 
   backgroundImage = createImage(video.width, video.height, RGB);
    // Το background που θα μετατρεπει
-  backgroundReplace = loadImage("pink.jpg");
+  backgroundReplace = new Movie(this,"pink.mp4");
+  backgroundReplace.loop();
 }
 
 // κλαση για να διαβάζει την κάμερα
@@ -31,24 +33,30 @@ void captureEvent(Capture video) {
   video.read();
 }
 
+// κλαση για να διαβάζει την κάμερα
+void movieEvent (Movie backgroundReplace) 
+{
+  backgroundReplace.read();
+}
 
-void draw() {
-  // Map the threshold to mouse location
+void draw() 
+{
+
   threshold = map(mouseX, 0, width, 5, 50);
+  image(backgroundReplace, width, height); //kalesa thn entoli ayti gia na anakalesei to video
 
-  // We are looking at the video's pixels, the memorized backgroundImage's pixels, as well as accessing the display pixels. 
-  // So we must loadPixels() for all!
+ 
   loadPixels();
   video.loadPixels(); 
-  backgroundImage.loadPixels();
+  backgroundReplace.loadPixels();
 
-  // Begin loop to walk through every pixel
+
   for (int x = 0; x < video.width; x ++ ) {
     for (int y = 0; y < video.height; y ++ ) {
       int loc = x + y*video.width; // Step 1, what is the 1D pixel location
       color fgColor = video.pixels[loc]; // Step 2, what is the foreground color
 
-      // Step 3, what is the background color
+     
       color bgColor = backgroundImage.pixels[loc];
 
       // Step 4, compare the foreground and background color
@@ -61,24 +69,24 @@ void draw() {
       float diff = dist(r1, g1, b1, r2, g2, b2);
 
       // Step 5, Is the foreground color different from the background color
-      if (diff > threshold) {
+   if (diff > threshold) 
+    {
         // If so, display the foreground color
         pixels[loc] = fgColor;
-      } else {
+      } else
+      {
         // If not, display the beach scene
         pixels[loc] = backgroundReplace.pixels[loc];
       }
+      
     }
+    
   }
   updatePixels();
 }
 
 void mousePressed() {
-  // Copying the current frame of video into the backgroundImage object
-  // Note copy takes 5 arguments:
-  // The source image
-  // x,y,width, and height of region to be copied from the source
-  // x,y,width, and height of copy destination
+
   backgroundImage.copy(video, 0, 0, video.width, video.height, 0, 0, video.width, video.height);
   backgroundImage.updatePixels();
 }
