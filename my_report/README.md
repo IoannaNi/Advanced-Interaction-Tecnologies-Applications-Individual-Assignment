@@ -54,11 +54,7 @@
       δ) Μέσα στην void draw πρόσθεσα την εντολή  "image(backgroundReplace, width, height); " για να ανακαλέσει το βίντεο. 
       Αύτες ήταν οι αλλαγές που έκανα στην άσκηση 16.6 για να πέτυχω το Background Removal.
       ΑΠΟΤΕΛΕΣΜΑΤΑ:
-
-
-       ![](dpsdXXXXX/Screenshot%20(12).png)
-
-
+      ![](dpsdXXXXX/Screenshot%20(12).png)
 
 
   2. Motion Detection:   
@@ -125,7 +121,7 @@
    (-) αναγκαστηκά κάμερα
    (-) μερικές φορές δεν είναι τόσο αποτελεσματικό
    (-) "κολλάει"
-   
+
 
 # 3rd Deliverable 
 
