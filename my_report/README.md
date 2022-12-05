@@ -140,12 +140,19 @@
 
 
    Η συγκεκριμένη τεχνική ελέγχου:
+
    (+) διαχείρηση απο απόστση
+
    (+) εύκολη πρόσβαση 
+
    (+) δεν χρειάζονται εξοπλησμός input παρα μόνο κάμερα
+
    (-) αναγκαστηκά κάμερα
+
    (-) μερικές φορές δεν είναι τόσο αποτελεσματικό
+
    (-) "κολλάει"
+   
 
 
 # 3rd Deliverable 
@@ -159,5 +166,7 @@
 
 # Sources
 videaki ("videaki.mp4" -> https://www.youtube.com/watch?v=zIKxshOqlAc )
+
 download (https://y2mate.tools/en57ec)
+
 qr (https://me-qr.com/qr-code-generator/qr)
