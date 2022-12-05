@@ -54,7 +54,8 @@
       δ) Μέσα στην void draw πρόσθεσα την εντολή  "image(backgroundReplace, width, height); " για να ανακαλέσει το βίντεο. 
       Αύτες ήταν οι αλλαγές που έκανα στην άσκηση 16.6 για να πέτυχω το Background Removal.
       ΑΠΟΤΕΛΕΣΜΑΤΑ:
-      ![](dpsdXXXXX/Screenshot%20(12).png)
+
+      ![](dpsdXXXXX/2.1.png)
 
 
   2. Motion Detection:   
@@ -67,33 +68,54 @@
     Όταν το σημειο κουνιεται αλλαζει το χρωμα που προηγούμενου pixel σε σχεση με του τωρινού.
     ΑΠΟΤΕΛΕΣΜΑΤΑ:
     
+    
      ![](dpsdXXXXX/2.2.png)
 
 
    3. Background Substraction - Library use:   
       Για το συγκεκριμένο χρειάστηκε να εγκαταστήσω την βιβλιοθήκη OpenCV, έπειτα πήρα βοήθεια απο το παράδειγμα "Background Substraction" και το μόνο που άλλαξα ήταν τα αρχεία για το βίντεο δλδ διέγραψα τα εξής:
+      
         1) video = new Movie(this, "street.mov");
             opencv = new OpenCV(this, 720, 480);
+
          2)void movieEvent(Movie m) {
           m.read(); }
+
       και τα αντικατέστησα με:
+
        1) //αναγνωριση κάμερας 
+
             video = new Capture(this, 720, 480);  
+
           // ανοίγει η κάμερα  
+
             video.start();  
+
           // δημιουργία αντικειμένου της OpenCV
+
             opencv = new OpenCV(this, 720, 480); 
+
+
         2)//διαβάζει την καμερα 
+
            void captureEvent(Capture video) {
+
            video.read(); }
+
+
        
        ΑΠΟΤΕΛΕΣΜΑΤΑ:
+
 
        ![](dpsdXXXXX/2.3.png)
 
 
+
+
    (*)ΕΡΩΤΗΣΗ:
+
    Ποια είναι τα πλεονεκτήματα και μειονεκτήματα της έτοιμης βιβλιοθήκης έναντι του κώδικα από το πρώτο ερώτημα;
+   
       Με την OpenCV:
        (+) γίνεται πιο εύκολη η διαδικασία
        (+) αναλύει και εντοπίζει τα αντικείμενα της εικόνας 
