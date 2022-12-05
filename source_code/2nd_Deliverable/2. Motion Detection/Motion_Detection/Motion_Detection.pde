@@ -55,7 +55,7 @@ void draw() {
       float b2 = blue(previous);
       float diff = dist(r1, g1, b1, r2, g2, b2);
 
-      //οταν το σημειο κουνιεται αλλαζει το χρωμα 
+      //οταν το σημειο κουνιεται αλλαζει το χρωμα που προηγούμενου pixel σε σχεση με του τωρινού
       if (diff > threshold) {
         sumX += x;
         sumY += y;
@@ -68,7 +68,7 @@ void draw() {
   float avgX = sumX / motionCount; 
   float avgY = sumY / motionCount; 
 
-  // επεξερασια σφαιρας
+  // επεξεργασια σφαιρας
   smooth(8);
   noStroke();
   fill(248, 200, 220);

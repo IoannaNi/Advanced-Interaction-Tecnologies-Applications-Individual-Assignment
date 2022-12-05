@@ -33,7 +33,7 @@ void captureEvent(Capture video) {
   video.read();
 }
 
-// κλαση για να διαβάζει την κάμερα
+// κλαση για να διαβάζει την το βιντεο
 void movieEvent (Movie backgroundReplace) 
 {
   backgroundReplace.read();
