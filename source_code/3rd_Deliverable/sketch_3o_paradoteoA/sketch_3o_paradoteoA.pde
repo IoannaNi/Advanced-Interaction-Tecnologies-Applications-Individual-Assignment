@@ -1,4 +1,4 @@
- //<>// //<>//
+//3o PARADOTEO //<>//
 
 // import the TUIO library
 import TUIO.*;
@@ -15,7 +15,7 @@ int imagewidth, imageheight; // PLATOS KAI MIKOS EIKONAS
 float zoom = 100;
 boolean loadImage= false ;
 float red=255;
-
+float opacity = 255; 
 boolean verbose = true; // print console debug messages
 boolean callback = true; // updates only after callbacks
 
@@ -24,7 +24,7 @@ void setup()
   // GUI setup
   // noCursor();
   // size(displayWidth,displayHeight); // 1o) allazw to mege8os gia na min pianei oli tin epifaneia ergasias
-  size(640, 480);
+  size(800, 900);
   // noStroke();
   //fill(0);
   img = loadImage("pink.jpg"); //2o
@@ -34,7 +34,8 @@ void setup()
   if (!callback) {
     frameRate(60);
     loop();
-  } else noLoop(); // or callback updates 
+  } 
+  else noLoop(); // or callback updates 
 
   font = createFont("Arial", 18);
   tuioClient  = new TuioProcessing(this);
@@ -55,21 +56,15 @@ void draw()
     TuioObject tobj = tuioObjectList.get(i);
 
 
-    if (tobj.getSymbolID()==0)
-    {
-      translate(tobj.getScreenX(width), tobj.getScreenY(height));
-      rotate(tobj.getAngle());
-      image(img, 0, 0, imagewidth, imageheight);
-    }
-
+   
 
     // an 8elw 2h eikona
-    /* if (tobj.getSymbolID()==1)
+    if (tobj.getSymbolID()==0)
      {
      translate(tobj.getScreenX(width),tobj.getScreenY(height));
      rotate(tobj.getAngle());
      image(img1, 0, 0);
-     }*/
+     }
 
     if (loadImage)
     {
@@ -86,7 +81,16 @@ void draw()
         // ka8orizete apo to xrwma
         red =map(tobj.getAngle(), 0, 6.2 ,  255, 0 );
         tint(red, 255 , 255);
+        
       }
+      
+      if (tobj.getSymbolID()==4)
+      {
+        // ka8orizete apo to opacity
+        opacity =map(tobj.getAngle(), 0, 0 ,  0, 0 );
+        tint(255, 127);
+      }
+      
       
     }
   }
@@ -124,6 +128,12 @@ void removeTuioObject(TuioObject tobj) {
   {
       red = 255;  
       tint(red, 255 , 255);
+  }
+  
+  if (tobj.getSymbolID()==4)
+  {
+      opacity = 255;  
+      tint(opacity, 255 , 255);
   }
   
 }
