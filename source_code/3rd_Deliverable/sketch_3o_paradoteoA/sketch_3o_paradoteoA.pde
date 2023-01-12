@@ -15,7 +15,8 @@ int imagewidth, imageheight; // PLATOS KAI MIKOS EIKONAS
 float zoom = 100;
 boolean loadImage= false ;
 float red=255;
-float opacity = 255; 
+float opacity = 255;
+
 boolean verbose = true; // print console debug messages
 boolean callback = true; // updates only after callbacks
 
@@ -24,7 +25,7 @@ void setup()
   // GUI setup
   // noCursor();
   // size(displayWidth,displayHeight); // 1o) allazw to mege8os gia na min pianei oli tin epifaneia ergasias
-  size(800, 900);
+  size(800, 800);
   // noStroke();
   //fill(0);
   img = loadImage("pink.jpg"); //2o
@@ -34,8 +35,7 @@ void setup()
   if (!callback) {
     frameRate(60);
     loop();
-  } 
-  else noLoop(); // or callback updates 
+  } else noLoop(); // or callback updates 
 
   font = createFont("Arial", 18);
   tuioClient  = new TuioProcessing(this);
@@ -56,15 +56,21 @@ void draw()
     TuioObject tobj = tuioObjectList.get(i);
 
 
-   
+    if (tobj.getSymbolID()==0)
+    {
+      translate(tobj.getScreenX(width/2), tobj.getScreenY(height/2));
+      rotate(tobj.getAngle());
+      image(img, 0, 0, imagewidth, imageheight);
+    }
+
 
     // an 8elw 2h eikona
-    if (tobj.getSymbolID()==0)
+    /* if (tobj.getSymbolID()==1)
      {
      translate(tobj.getScreenX(width),tobj.getScreenY(height));
      rotate(tobj.getAngle());
      image(img1, 0, 0);
-     }
+     }*/
 
     if (loadImage)
     {
@@ -75,23 +81,19 @@ void draw()
         imagewidth = int(img.width* zoom/100); // allazw to mege8ow tis eikonas me basi to zoom
         imageheight = int(img.height*zoom/100);
       }
-      
+
       if (tobj.getSymbolID()==3)
       {
         // ka8orizete apo to xrwma
-        red =map(tobj.getAngle(), 0, 6.2 ,  255, 0 );
-        tint(red, 255 , 255);
-        
+        red =map(tobj.getAngle(), 0, 6.2, 255, 0 );
+        tint(red, 255, 255);
       }
-      
+
       if (tobj.getSymbolID()==4)
       {
-        // ka8orizete apo to opacity
-        opacity =map(tobj.getAngle(), 0, 0 ,  0, 0 );
-        tint(255, 127);
+        opacity =map(tobj.getAngle(), 0, 15, 255, 50 );  
+        tint( 255, 50);
       }
-      
-      
     }
   }
 }
@@ -121,21 +123,20 @@ void removeTuioObject(TuioObject tobj) {
   }
   if (tobj.getSymbolID()==2)
   {
-     imagewidth = img.width/2;
-     imageheight = img.height/2;
+    imagewidth = img.width/2;
+    imageheight = img.height/2;
   }
-   if (tobj.getSymbolID()==3)
+  if (tobj.getSymbolID()==3)
   {
-      red = 255;  
-      tint(red, 255 , 255);
+    red = 255;  
+    tint(red, 255, 255);
   }
-  
+
   if (tobj.getSymbolID()==4)
   {
-      opacity = 255;  
-      tint(opacity, 255 , 255);
+    opacity = 255;  
+    tint( 255, 255);
   }
-  
 }
 
 // --------------------------------------------------------------
